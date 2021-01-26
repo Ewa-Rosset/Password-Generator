@@ -1,5 +1,6 @@
 import random
-import string  
+import string
+import sys  
 
 def isnumber(input):
     if input.isnumeric() == False:
@@ -9,7 +10,7 @@ def isnumber(input):
         return True
 
 def quit():
-    quit_input = input("To quit press Q. Press enter to continue")
+    quit_input = input("To quit press Q. Press enter to continue ")
     quit_input = quit_input.upper()
     if quit_input == "Q":
         return True
@@ -30,7 +31,9 @@ while True:
         else:
             desired_len = 0
             if quit():
+                sys.exit() 
                 break
+                
         
     #Password Letters
     while True:
@@ -43,6 +46,7 @@ while True:
             if letters_count > desired_len:
                 print("\nLetters exceed the desired lenght of password\nThe lenght of password is:", str(desired_len))
                 if quit():
+                    sys.exit() 
                     break
             else:
                 break
@@ -61,6 +65,7 @@ while True:
             if numbers_count > characters_left:
                 print("\nCharcters exceed the desired lenght of password.\nThe remaining character lenght that can be used is: ", str(characters_left))
                 if quit():
+                    sys.exit() 
                     break
             else:
                 characters_left -= numbers_count
@@ -91,5 +96,5 @@ while True:
 
     print("Your new password is:",final_password)
 
-    quit()
-
+    if quit():
+        sys.exit()
